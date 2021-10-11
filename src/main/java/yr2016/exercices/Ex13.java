@@ -20,7 +20,7 @@ public class Ex13 {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex13.txt")));
     }
 
-    public static void partOne() throws IOException, NoSuchAlgorithmException {
+    private static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 13 - 1 ----------------------------\n");
         final int designerNumber = Integer.parseInt(getInput().replace("\r", "").replace("\n", ""));
 
@@ -41,7 +41,7 @@ public class Ex13 {
         System.out.println("Solution: " + result);
     }
 
-    public static void partTwo() throws IOException, NoSuchAlgorithmException {
+    private static void partTwo() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 13 - 2 ----------------------------\n");
         final int designerNumber = Integer.parseInt(getInput().replace("\r", "").replace("\n", ""));
         int x = 1, y = 1;

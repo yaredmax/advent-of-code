@@ -27,7 +27,7 @@ public class Ex5 {
     }
 
 
-    public static void partOne() throws IOException, NoSuchAlgorithmException {
+    private static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 5 - 1 ----------------------------\n");
         String hash = getInput().replace("\r", "").replace("\n", "");
 
@@ -52,7 +52,7 @@ public class Ex5 {
     }
 
 
-    public static void partTwo() throws IOException, NoSuchAlgorithmException {
+    private static void partTwo() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 5 - 2 ----------------------------\n");
         String hash = getInput().replace("\r", "").replace("\n", "");
 

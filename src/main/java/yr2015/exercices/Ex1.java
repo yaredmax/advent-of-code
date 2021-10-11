@@ -10,7 +10,7 @@ public class Ex1 {
         partTwo();
     }
 
-    public static void partOne() throws IOException {
+    private static void partOne() throws IOException {
         System.out.println("\n\n---------------------------- 2015: Exercise 1 - 1----------------------------\n");
 
         String instructions = new String(Files.readAllBytes(Paths.get("inputs/yr2015/ex1.txt"))).replace("\n", "").replace("\r", "");
@@ -21,7 +21,7 @@ public class Ex1 {
         System.out.println("Solution: " + (up - down));
     }
 
-    public static void partTwo() throws IOException {
+    private static void partTwo() throws IOException {
         System.out.println("\n---------------------------- 2015: Exercise 1 - 2 ----------------------------\n");
         char[] instructions = new String(Files.readAllBytes(Paths.get("inputs/yr2015/ex1.txt"))).replace("\n", "").replace("\r", "").toCharArray();
 

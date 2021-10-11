@@ -22,7 +22,7 @@ public class Ex4 {
     }
 
 
-    public static void partOne() throws IOException {
+    private static void partOne() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 4 - 1 ----------------------------\n");
         String[] encryptionArray = getInput().replace("\r", "").split("\n");
 
@@ -39,7 +39,7 @@ public class Ex4 {
     }
 
 
-    public static void partTwo() throws IOException {
+    private static void partTwo() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 4 - 2 ----------------------------\n");
 
         String[] encryptionArray = getInput().replace("\r", "").split("\n");

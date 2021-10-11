@@ -23,7 +23,7 @@ public class Ex10 {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex10.txt")));
     }
 
-    public static void partOne() throws IOException, NoSuchAlgorithmException {
+    private static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 10 - 1 ----------------------------\n");
         String[] instructions = getInput().replace("\r", "").split("\n");
 
@@ -35,7 +35,7 @@ public class Ex10 {
         System.out.println("Solution: " + result);
     }
 
-    public static void partTwo() throws IOException, NoSuchAlgorithmException {
+    private static void partTwo() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 10 - 2 ----------------------------\n");
         String[] instructions = getInput().replace("\r", "").split("\n");
 

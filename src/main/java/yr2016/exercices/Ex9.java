@@ -21,13 +21,13 @@ public class Ex9 {
     }
 
 
-    public static void partOne() throws IOException, NoSuchAlgorithmException {
+    private static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 9 - 1 ----------------------------\n");
         String file = getInput().replace("\r", "").replace("\n", "").replace(" ", "");
         System.out.println("Solution: " + decompress(file, false));
     }
 
-    public static void partTwo() throws IOException, NoSuchAlgorithmException {
+    private static void partTwo() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 9 - 2 ----------------------------\n");
         String file = getInput().replace("\r", "").replace("\n", "").replace(" ", "");
         System.out.println("Solution: " + decompress(file, true));

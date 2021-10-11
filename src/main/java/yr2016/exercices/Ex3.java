@@ -19,7 +19,7 @@ public class Ex3 {
     }
 
 
-    public static void partOne() throws IOException {
+    private static void partOne() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 3 - 1 ----------------------------\n");
 
         String[] triangles = getInput().replace("\r", "").split("\n");
@@ -37,7 +37,7 @@ public class Ex3 {
         System.out.println("Solution: " + result);
     }
 
-    public static void partTwo() throws IOException {
+    private static void partTwo() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 3 - 2 ----------------------------\n");
 
         String[][] input = Arrays.stream(getInput().replace("\r", "").split("\n")).map(line -> line.trim().split("\\s+")).collect(Collectors.toList()).toArray(new String[][]{});

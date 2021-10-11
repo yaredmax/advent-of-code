@@ -24,7 +24,7 @@ public class Ex7 {
     }
 
 
-    public static void partOne() throws IOException, NoSuchAlgorithmException {
+    private static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 7 - 1 ----------------------------\n");
         String[] ips = getInput().replace("\r", "").split("\n");
 
@@ -55,7 +55,7 @@ public class Ex7 {
         System.out.println("Solution: " + result);
     }
 
-    public static void partTwo() throws IOException, NoSuchAlgorithmException {
+    private static void partTwo() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 7 - 2 ----------------------------\n");
         String[] ips = getInput().replace("\r", "").split("\n");
 

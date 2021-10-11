@@ -21,14 +21,14 @@ public class Ex11 {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex11.txt")));
     }
 
-    public static void partOne() throws IOException, NoSuchAlgorithmException {
+    private static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 11 - 1 ----------------------------\n");
         String[] instructions = getInput().replace("\r", "").split("\n");
 
         System.out.println("Solution: " + "");
     }
 
-    public static void partTwo() throws IOException, NoSuchAlgorithmException {
+    private static void partTwo() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 11 - 2 ----------------------------\n");
         String[] instructions = getInput().replace("\r", "").split("\n");
 

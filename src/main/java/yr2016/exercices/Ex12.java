@@ -25,12 +25,12 @@ public class Ex12 {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex12.txt")));
     }
 
-    public static void partOne() throws IOException, NoSuchAlgorithmException {
+    private static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 12 - 1 ----------------------------\n");
         getResult(0);
     }
 
-    public static void partTwo() throws IOException, NoSuchAlgorithmException {
+    private static void partTwo() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 12 - 2 ----------------------------\n");
         getResult(1);
     }

@@ -26,7 +26,7 @@ public class Ex6 {
     }
 
 
-    public static void partOne() throws IOException, NoSuchAlgorithmException {
+    private static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 6 - 1 ----------------------------\n");
         char[][] matrix = Arrays.stream(getInput().replace("\r", "").split("\n")).map(String::toCharArray).collect(Collectors.toList()).toArray(new char[][]{});
         matrix = ArrayUtils.rotateMatrix(matrix);
@@ -35,7 +35,7 @@ public class Ex6 {
     }
 
 
-    public static void partTwo() throws IOException, NoSuchAlgorithmException {
+    private static void partTwo() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 6 - 2 ----------------------------\n");
         char[][] matrix = Arrays.stream(getInput().replace("\r", "").split("\n")).map(String::toCharArray).collect(Collectors.toList()).toArray(new char[][]{});
         matrix = ArrayUtils.rotateMatrix(matrix);

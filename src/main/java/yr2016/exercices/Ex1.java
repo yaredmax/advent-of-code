@@ -15,7 +15,7 @@ public class Ex1 {
     }
 
 
-    public static void partOne() throws IOException {
+    private static void partOne() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 1 - 1 ----------------------------\n");
 
         String[] instructions = getInput().replace("\n", "").replace("\r", "").split(", ");
@@ -70,7 +70,7 @@ public class Ex1 {
         System.out.println("Solution: " + result);
     }
 
-    public static void partTwo() throws IOException {
+    private static void partTwo() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 1 - 2 ----------------------------\n");
 
         String[] instructions = getInput().replace("\n", "").replace("\r", "").split(", ");

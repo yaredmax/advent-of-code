@@ -18,7 +18,7 @@ public class Ex2 {
     }
 
 
-    public static void partOne() throws IOException {
+    private static void partOne() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 2 - 1 ----------------------------\n");
 
         String[] instructions = getInput().replace("\r", "").split("\n");
@@ -55,7 +55,7 @@ public class Ex2 {
         System.out.println("Solution: " + result);
     }
 
-    public static void partTwo() throws IOException {
+    private static void partTwo() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 2 - 2 ----------------------------\n");
 
         String[] instructions = getInput().replace("\r", "").split("\n");
