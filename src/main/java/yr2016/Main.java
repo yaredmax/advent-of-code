@@ -23,7 +23,9 @@ public class Main {
 //        Ex13.solution();
 //        Ex14.solution();
 //        Ex16.solution();
-        Ex17.solution();
+//        Ex17.solution();
+//        Ex18.solution();
+        Ex19.solution();
 
         long end = System.currentTimeMillis();
         System.out.println("\n" + (end - start) + " millis.");
