@@ -36,7 +36,7 @@ public class Ex6 {
 
 
     private static void partTwo() throws IOException, NoSuchAlgorithmException {
-        System.out.println("\n\n---------------------------- 2016: Exercise 6 - 2 ----------------------------\n");
+        System.out.println("\n---------------------------- 2016: Exercise 6 - 2 ----------------------------\n");
         char[][] matrix = Arrays.stream(getInput().replace("\r", "").split("\n")).map(String::toCharArray).collect(Collectors.toList()).toArray(new char[][]{});
         matrix = ArrayUtils.rotateMatrix(matrix);
         final String result = Arrays.stream(matrix).map(s -> String.valueOf(StringUtils.lessCommonChar(s))).reduce(String::concat).orElse("");

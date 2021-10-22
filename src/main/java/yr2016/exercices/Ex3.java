@@ -38,7 +38,7 @@ public class Ex3 {
     }
 
     private static void partTwo() throws IOException {
-        System.out.println("\n\n---------------------------- 2016: Exercise 3 - 2 ----------------------------\n");
+        System.out.println("\n---------------------------- 2016: Exercise 3 - 2 ----------------------------\n");
 
         String[][] input = Arrays.stream(getInput().replace("\r", "").split("\n")).map(line -> line.trim().split("\\s+")).collect(Collectors.toList()).toArray(new String[][]{});
 

@@ -71,7 +71,7 @@ public class Ex1 {
     }
 
     private static void partTwo() throws IOException {
-        System.out.println("\n\n---------------------------- 2016: Exercise 1 - 2 ----------------------------\n");
+        System.out.println("\n---------------------------- 2016: Exercise 1 - 2 ----------------------------\n");
 
         String[] instructions = getInput().replace("\n", "").replace("\r", "").split(", ");
 

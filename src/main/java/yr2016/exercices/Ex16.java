@@ -29,7 +29,7 @@ public class Ex16 {
     }
 
     private static void partTwo() throws IOException, NoSuchAlgorithmException {
-        System.out.println("\n\n---------------------------- 2016: Exercise 16 - 2 ----------------------------\n");
+        System.out.println("\n---------------------------- 2016: Exercise 16 - 2 ----------------------------\n");
         StringBuilder initialState = new StringBuilder(getInput().replace("\r", "").replace("\n", ""));
         int length = 35651584;
         fillDisk(initialState, length);

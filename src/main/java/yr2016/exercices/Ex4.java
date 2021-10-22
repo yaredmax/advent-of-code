@@ -40,7 +40,7 @@ public class Ex4 {
 
 
     private static void partTwo() throws IOException {
-        System.out.println("\n\n---------------------------- 2016: Exercise 4 - 2 ----------------------------\n");
+        System.out.println("\n---------------------------- 2016: Exercise 4 - 2 ----------------------------\n");
 
         String[] encryptionArray = getInput().replace("\r", "").split("\n");
 

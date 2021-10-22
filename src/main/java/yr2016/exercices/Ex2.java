@@ -56,7 +56,7 @@ public class Ex2 {
     }
 
     private static void partTwo() throws IOException {
-        System.out.println("\n\n---------------------------- 2016: Exercise 2 - 2 ----------------------------\n");
+        System.out.println("\n---------------------------- 2016: Exercise 2 - 2 ----------------------------\n");
 
         String[] instructions = getInput().replace("\r", "").split("\n");
 

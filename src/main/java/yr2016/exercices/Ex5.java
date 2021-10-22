@@ -53,7 +53,7 @@ public class Ex5 {
 
 
     private static void partTwo() throws IOException, NoSuchAlgorithmException {
-        System.out.println("\n\n---------------------------- 2016: Exercise 5 - 2 ----------------------------\n");
+        System.out.println("\n---------------------------- 2016: Exercise 5 - 2 ----------------------------\n");
         String hash = getInput().replace("\r", "").replace("\n", "");
 
         byte[] bytes;

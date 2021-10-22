@@ -42,7 +42,7 @@ public class Ex13 {
     }
 
     private static void partTwo() throws IOException, NoSuchAlgorithmException {
-        System.out.println("\n\n---------------------------- 2016: Exercise 13 - 2 ----------------------------\n");
+        System.out.println("\n---------------------------- 2016: Exercise 13 - 2 ----------------------------\n");
         final int designerNumber = Integer.parseInt(getInput().replace("\r", "").replace("\n", ""));
         int x = 1, y = 1;
         boolean[][] labyrinth = new boolean[99][99];

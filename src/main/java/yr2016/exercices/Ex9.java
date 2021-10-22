@@ -28,7 +28,7 @@ public class Ex9 {
     }
 
     private static void partTwo() throws IOException, NoSuchAlgorithmException {
-        System.out.println("\n\n---------------------------- 2016: Exercise 9 - 2 ----------------------------\n");
+        System.out.println("\n---------------------------- 2016: Exercise 9 - 2 ----------------------------\n");
         String file = getInput().replace("\r", "").replace("\n", "").replace(" ", "");
         System.out.println("Solution: " + decompress(file, true));
     }
