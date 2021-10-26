@@ -13,13 +13,12 @@ public class Ex3 {
         partTwo();
     }
 
-
     private static String getInput() throws IOException {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex3.txt")));
     }
 
 
-    private static void partOne() throws IOException {
+    public static void partOne() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 3 - 1 ----------------------------\n");
 
         String[] triangles = getInput().replace("\r", "").split("\n");

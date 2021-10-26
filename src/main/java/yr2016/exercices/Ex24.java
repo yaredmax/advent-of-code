@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Ex24 {
 
@@ -23,6 +24,15 @@ public class Ex24 {
 
     private static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 24 - 1 ----------------------------\n");
+        resolve(false);
+    }
+
+    private static void partTwo() throws IOException, NoSuchAlgorithmException {
+        System.out.println("\n---------------------------- 2016: Exercise 24 - 2 ----------------------------\n");
+        resolve(true);
+    }
+
+    private static void resolve(boolean returnToZero) throws IOException {
         String[] input = getInput().replace("\r", "").split("\n");
         Cell[][] map = new Cell[input.length][input[0].length()];
 
@@ -39,26 +49,7 @@ public class Ex24 {
             }
         }
 
-        int coun = 0;
-        for (Cell[] cells : map) {
-            for (Cell cell : cells) {
-                if (cell.type == CellType.WALL)
-                    coun++;
-            }
-        }
-        System.out.println(coun);
         reduceMap(map);
-
-        coun = 0;
-        for (Cell[] cells : map) {
-            for (Cell cell : cells) {
-                if (cell.type == CellType.WALL)
-                    coun++;
-                System.out.print(cell.value + " ");
-            }
-            System.out.println();
-        }
-        System.out.println(coun);
 
         Map<Character, Set<Shortest>> shortestMap = new HashMap<>();
 
@@ -75,42 +66,34 @@ public class Ex24 {
             }
         }
 
-        int result = Integer.MAX_VALUE;
-//        shortestMap.values().stream().flatMap(Collection::stream).map()
-//        final Collection<Set<Shortest>> values = shortestMap.values();
-//        for (Set<Shortest> value : values) {
-//            for (Shortest shortest : value) {
-//
-//            }
-//            for (Set<Shortest> value2 : values) {
-//                value
-//            }
-//        }
-        System.out.println();
-        for (Character key : shortestMap.keySet()) {
-            System.out.println("\n EMPEZANDO POR " + key);
-            Set<Character> used = new HashSet<>();
-            int aux = 0;
-            Set<Shortest> currentList = shortestMap.get(key);
-            used.add(key);
-            Character lastValue = key;
-            while (used.size() != shortestMap.size()) {
-                final Shortest shortest = currentList.stream().filter(s -> !used.contains(s.cell.value)).min(Comparator.comparingInt(o -> o.distance)).get();
-                used.add(shortest.cell.value);
-                aux += shortest.distance;
-                currentList = shortestMap.get(shortest.cell.value);
-                System.out.println(lastValue + " ---- " + shortest.distance + " ----> " + shortest.cell.value + ". Total: " + aux);
-                lastValue = shortest.cell.value;
-            }
-            System.out.println(aux);
+        final Set<Shortest> from0 = shortestMap.get('0');
+
+        Set<Integer> resultList = new HashSet<>();
+        Set<Character> used = new HashSet<>();
+        used.add('0');
+        for (Shortest shortest : from0) {
+            used.add(shortest.cell.value);
+            add(used, shortestMap, shortest, shortest.distance, resultList, returnToZero);
+            used.remove(shortest.cell.value);
         }
 
-
-        System.out.println("Solution: " + result);
+        System.out.println("Solution: " + resultList.stream().min(Integer::compareTo).orElse(0));
     }
 
-    private static void partTwo() throws IOException, NoSuchAlgorithmException {
-        System.out.println("\n---------------------------- 2016: Exercise 24 - 2 ----------------------------\n");
+    private static void add(Set<Character> used, Map<Character, Set<Shortest>> shortestMap, Shortest current, int result, Set<Integer> resultList, boolean returnToZero) {
+        final Set<Shortest> shortlists = shortestMap.get(current.cell.value).stream().filter(shortest -> !used.contains(shortest.cell.value)).collect(Collectors.toSet());
+        if (shortlists.size() > 0) {
+            for (Shortest shortest : shortlists) {
+                used.add(shortest.cell.value);
+                add(used, shortestMap, shortest, result + shortest.distance, resultList, returnToZero);
+                used.remove(shortest.cell.value);
+            }
+        } else if (used.size() == shortestMap.size()) {
+            if (returnToZero) {
+                result += shortestMap.get('0').stream().filter(shortest -> shortest.cell.value == current.cell.value).findFirst().get().distance;
+            }
+            resultList.add(result);
+        }
     }
 
     private static void reduceMap(Cell[][] map) {
@@ -203,18 +186,15 @@ public class Ex24 {
         return wallCount;
     }
 
-
     private static List<Shortest> shortestPaths(Cell init, LinkedList<Cell> targets, Cell[][] map) {
         List<Shortest> shortlists = new ArrayList<>();
         List<Move> nextMoves = new ArrayList<>();
         nextMoves.add(new Move(init, new HashSet<>()));
         int count = 0;
-//        Cell found = null;
         Set<Cell> foundList = new HashSet<>();
         while (shortlists.size() != targets.size()) {
             List<Move> aux = new ArrayList<>();
-            for (int i = 0; i < nextMoves.size(); i++) {
-                Move move = nextMoves.get(i);
+            for (Move move : nextMoves) {
                 int x = move.from.x;
                 int y = move.from.y;
 
@@ -259,14 +239,10 @@ public class Ex24 {
                         aux.add(next);
                     }
                 }
-                if (aux.size() == 0 && i == nextMoves.size() - 1) {
-                    System.out.print("");
-                }
             }
             nextMoves = aux;
             count++;
             for (Cell found : foundList) {
-                System.out.println("Desde el " + init.value + " al " + found.value + " hay " + count);
                 shortlists.add(new Shortest(found, count));
             }
             foundList.clear();

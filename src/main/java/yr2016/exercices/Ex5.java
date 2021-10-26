@@ -21,13 +21,11 @@ public class Ex5 {
         }
     }
 
-
     private static String getInput() throws IOException {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex5.txt")));
     }
 
-
-    private static void partOne() throws IOException, NoSuchAlgorithmException {
+    public static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 5 - 1 ----------------------------\n");
         String hash = getInput().replace("\r", "").replace("\n", "");
 

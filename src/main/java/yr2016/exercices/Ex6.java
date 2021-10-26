@@ -20,13 +20,11 @@ public class Ex6 {
         }
     }
 
-
     private static String getInput() throws IOException {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex6.txt")));
     }
 
-
-    private static void partOne() throws IOException, NoSuchAlgorithmException {
+    public static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 6 - 1 ----------------------------\n");
         char[][] matrix = Arrays.stream(getInput().replace("\r", "").split("\n")).map(String::toCharArray).collect(Collectors.toList()).toArray(new char[][]{});
         matrix = ArrayUtils.rotateMatrix(matrix);

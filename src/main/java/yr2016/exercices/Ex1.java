@@ -14,7 +14,6 @@ public class Ex1 {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex1.txt")));
     }
 
-
     private static void partOne() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 1 - 1 ----------------------------\n");
 

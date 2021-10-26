@@ -27,8 +27,7 @@ public class Ex8 {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex8.txt")));
     }
 
-
-    private static void partOne() throws IOException, NoSuchAlgorithmException {
+    public static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 8 - 1 ----------------------------\n");
         String[] instructions = getInput().replace("\r", "").split("\n");
 

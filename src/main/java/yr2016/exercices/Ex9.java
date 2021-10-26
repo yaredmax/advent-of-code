@@ -20,8 +20,7 @@ public class Ex9 {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex9.txt")));
     }
 
-
-    private static void partOne() throws IOException, NoSuchAlgorithmException {
+    public static void partOne() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n\n---------------------------- 2016: Exercise 9 - 1 ----------------------------\n");
         String file = getInput().replace("\r", "").replace("\n", "").replace(" ", "");
         System.out.println("Solution: " + decompress(file, false));

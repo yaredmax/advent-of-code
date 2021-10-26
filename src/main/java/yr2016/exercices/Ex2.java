@@ -12,11 +12,9 @@ public class Ex2 {
         partTwo();
     }
 
-
     private static String getInput() throws IOException {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex2.txt")));
     }
-
 
     private static void partOne() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 2 - 1 ----------------------------\n");

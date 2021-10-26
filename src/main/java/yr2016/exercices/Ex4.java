@@ -16,13 +16,11 @@ public class Ex4 {
         partTwo();
     }
 
-
     private static String getInput() throws IOException {
         return new String(Files.readAllBytes(Paths.get("inputs/yr2016/ex4.txt")));
     }
 
-
-    private static void partOne() throws IOException {
+    public static void partOne() throws IOException {
         System.out.println("\n\n---------------------------- 2016: Exercise 4 - 1 ----------------------------\n");
         String[] encryptionArray = getInput().replace("\r", "").split("\n");
 
