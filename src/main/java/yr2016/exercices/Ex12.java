@@ -54,8 +54,7 @@ public class Ex12 {
         System.out.println("Solution: " + registerMap.get("a"));
     }
 
-
-    public static Instruction transform(String instruction) {
+    private static Instruction transform(String instruction) {
         Instruction res = new Instruction();
         final String[] split = instruction.split(" ");
         res.type = split[0];
@@ -65,7 +64,7 @@ public class Ex12 {
         return res;
     }
 
-    public static int operate(Instruction instruction, Map<String, Integer> registerMap) {
+    private static int operate(Instruction instruction, Map<String, Integer> registerMap) {
         int increment = 1;
         switch (instruction.type) {
             case "cpy" -> {
@@ -94,8 +93,8 @@ public class Ex12 {
     }
 
     private static class Instruction {
-        private String type;
-        private String x;
-        private String y;
+        public String type;
+        public String x;
+        public String y;
     }
 }
