@@ -1,6 +1,6 @@
 package yr2016;
 
-import yr2016.exercices.*;
+import yr2016.exercices.Ex11;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class Main {
 //        Ex8.solution();
 //        Ex9.solution();
 //        Ex10.solution();
-//        Ex11.solution();
+        Ex11.solution();
 //        Ex12.solution();
 //        Ex13.solution();
 //        Ex14.solution();
@@ -30,7 +30,7 @@ public class Main {
 //        Ex21.solution();
 //        Ex22.solution();
 //        Ex23.solution();
-        Ex24.solution();
+//        Ex24.solution();
 
         long end = System.currentTimeMillis();
         System.out.println("\n" + (end - start) + " millis.");
