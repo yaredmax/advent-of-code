@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Ex13 {
 
@@ -24,19 +26,31 @@ public class Ex13 {
         System.out.println("\n\n---------------------------- 2016: Exercise 13 - 1 ----------------------------\n");
         final int designerNumber = Integer.parseInt(getInput().replace("\r", "").replace("\n", ""));
 
-        int x = 1, y = 1, targetX = 31, targetY = 39;
+        int targetX = 31, targetY = 39;
 
-        boolean[][] labyrinth = new boolean[190][190];
+        List<Move> moves = new ArrayList<>();
+        moves.add(new Move(new Cell(1, 1), new ArrayList<>()));
 
-        for (int i = 0; i < labyrinth.length; i++) {
-            for (int j = 0; j < labyrinth[i].length; j++) {
-                labyrinth[i][j] = isWall(i, j, designerNumber);
+        int result = 0;
+        while (moves.stream().noneMatch(m -> m.cell.x == targetX && m.cell.y == targetY)) {
+            List<Move> aux = new ArrayList<>();
+            for (Move move : moves) {
+                move.visited.add(move.cell);
+                final int x = move.cell.x;
+                final int y = move.cell.y;
+                add(x + 1, y, designerNumber, move, aux);
+                if (move.cell.x > 0) {
+                    add(x - 1, y, designerNumber, move, aux);
+                }
+                add(x, y + 1, designerNumber, move, aux);
+                if (move.cell.y > 0) {
+                    add(x, y - 1, designerNumber, move, aux);
+                }
             }
+            moves = aux;
+            result++;
         }
 
-        labyrinth[x][y] = true;
-
-        int result = path(labyrinth, x, y, targetX, targetY, 0) - 1;
 
         System.out.println("Solution: " + result);
     }
@@ -44,90 +58,38 @@ public class Ex13 {
     private static void partTwo() throws IOException, NoSuchAlgorithmException {
         System.out.println("\n---------------------------- 2016: Exercise 13 - 2 ----------------------------\n");
         final int designerNumber = Integer.parseInt(getInput().replace("\r", "").replace("\n", ""));
-        int x = 1, y = 1;
-        boolean[][] labyrinth = new boolean[99][99];
-        for (int i = 0; i < labyrinth.length; i++) {
-            for (int j = 0; j < labyrinth[i].length; j++) {
-                labyrinth[i][j] = isWall(i, j, designerNumber);
+        List<Move> moves = new ArrayList<>();
+        moves.add(new Move(new Cell(1, 1), new ArrayList<>()));
+
+        Set<Cell> cells = new HashSet<>();
+        int result = 0;
+        while (result <= 50) {
+            List<Move> aux = new ArrayList<>();
+            for (Move move : moves) {
+                move.visited.add(move.cell);
+                final int x = move.cell.x;
+                final int y = move.cell.y;
+                add(x + 1, y, designerNumber, move, aux);
+                if (move.cell.x > 0) {
+                    add(x - 1, y, designerNumber, move, aux);
+                }
+                add(x, y + 1, designerNumber, move, aux);
+                if (move.cell.y > 0) {
+                    add(x, y - 1, designerNumber, move, aux);
+                }
             }
+            moves = aux;
+            cells.addAll(moves.stream().map(move -> move.cell).collect(Collectors.toList()));
+            result++;
         }
 
-        labyrinth[x][y] = true;
-
-        int result = howMany(labyrinth, x, y, 0);
-
-
-        System.out.println("Solution: " + result);
+        System.out.println("Solution: " + cells.size());
     }
 
-    private static int path(boolean[][] labyrinth, int x, int y, int targetX, int targetY, int depth) {
-        int minCount = Integer.MAX_VALUE - 1;
-
-        boolean[][] copy = labyrinth.clone();
-
-        if (x == targetX && y == targetY) {
-            minCount = 0;
-        } else {
-            for (int i = -1; i <= 1; i += 2) {
-                if (x + i >= 0 && x + 1 < labyrinth.length && !labyrinth[x + i][y]) {
-                    copy[x + i][y] = true;
-                    int count = path(copy, x + i, y, targetX, targetY, depth + 1);
-                    if (count < minCount) {
-                        minCount = count;
-                    }
-                }
-
-                if (y + i >= 0 && y + 1 < labyrinth[x].length && !labyrinth[x][y + i]) {
-                    copy[x][y + i] = true;
-                    int count = path(copy, x, y + i, targetX, targetY, depth + 1);
-                    if (count < minCount) {
-                        minCount = count;
-                    }
-                }
-            }
-        }
-
-        return minCount + 1;
-    }
-
-    private static int howMany(boolean[][] labyrinth, int x, int y, int depth) {
-        int count = 0;
-
-        System.out.println(depth);
-        boolean[][] copy = labyrinth.clone();
-
-        if (depth == 50) {
-            count = 1;
-        } else {
-            for (int i = -1; i <= 1; i += 2) {
-                if (x + i >= 0 && x + 1 < labyrinth.length && !labyrinth[x + i][y]) {
-                    copy[x + i][y] = true;
-                    count += howMany(copy, x + i, y, depth + 1);
-                }
-
-                if (y + i >= 0 && y + 1 < labyrinth[x].length && !labyrinth[x][y + i]) {
-                    copy[x][y + i] = true;
-                    count += howMany(copy, x, y + i, depth + 1);
-                }
-            }
-        }
-
-        return count;
-    }
-
-
-    public static void printWay(boolean[][] lab, char t, char f) {
-        for (int i = 0; i < lab.length; i++) {
-            boolean[] row = lab[i];
-            for (int j = 0; j < row.length; j++) {
-                boolean b = row[j];
-                if (false) {
-                    System.out.print(" O");
-                } else {
-                    System.out.print(" " + (b ? t : f));
-                }
-            }
-            System.out.println();
+    private static void add(int x, int y, int designerNumber, Move move, List<Move> aux) {
+        if (!isWall(x, y, designerNumber)) {
+            if (move.visited.stream().noneMatch(c -> c.x == x && c.y == y))
+                aux.add(new Move(new Cell(x, y), new ArrayList<>(move.visited)));
         }
     }
 
@@ -137,5 +99,42 @@ public class Ex13 {
         return binary.chars().filter(value -> Character.getNumericValue(value) == 1).count() % 2 != 0;
     }
 
+    private enum CellType {
+        WALL, TARGET, PATH
+    }
+
+
+    private static class Move {
+        private Cell cell;
+        private List<Cell> visited;
+
+        public Move(Cell cell, List<Cell> visited) {
+            this.cell = cell;
+            this.visited = visited;
+        }
+    }
+
+    private static class Cell {
+        private final int x;
+        private final int y;
+
+        public Cell(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Cell cell = (Cell) o;
+            return x == cell.x && y == cell.y;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(x, y);
+        }
+    }
 
 }
