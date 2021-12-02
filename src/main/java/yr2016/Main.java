@@ -1,6 +1,6 @@
 package yr2016;
 
-import yr2016.exercices.Ex13;
+import yr2016.exercices.Ex16;
 
 import java.io.IOException;
 
@@ -20,9 +20,9 @@ public class Main {
 //        Ex10.solution();
 //        Ex11.solution();
 //        Ex12.solution();
-        Ex13.solution();
+//        Ex13.solution();
 //        Ex14.solution();
-//        Ex16.solution();
+        Ex16.solution();
 //        Ex17.solution();
 //        Ex18.solution();
 //        Ex19.solution();
