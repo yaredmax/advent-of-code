@@ -1,6 +1,6 @@
 package yr2016;
 
-import yr2016.exercices.Ex16;
+import yr2016.exercises.Ex16;
 
 import java.io.IOException;
 
