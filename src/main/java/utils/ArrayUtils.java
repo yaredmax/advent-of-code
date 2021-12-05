@@ -60,6 +60,15 @@ public class ArrayUtils {
         }
     }
 
+    public static void print(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int b : row) {
+                System.out.print(b + "\t");
+            }
+            System.out.println();
+        }
+    }
+
     public static void print(boolean[][] matrix, char t, char f) {
         for (boolean[] row : matrix) {
             for (boolean b : row) {
