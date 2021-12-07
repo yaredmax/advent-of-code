@@ -2,6 +2,7 @@ package yr2021;
 
 import yr2021.exercises.Ex5;
 import yr2021.exercises.Ex6;
+import yr2021.exercises.Ex7;
 
 import java.io.IOException;
 
@@ -14,7 +15,8 @@ public class Main {
 //        Ex3.solution();
 //        Ex4.solution();
 //        Ex5.solution();
-        Ex6.solution();
+//        Ex6.solution();
+        Ex7.solution();
 
         long end = System.currentTimeMillis();
         System.out.println("\n" + (end - start) + " millis.");
